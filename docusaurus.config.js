@@ -67,10 +67,10 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: '',
+        title: 'Ribir',
         logo: {
           alt: 'Ribir LOGO',
-          src: 'img/ribir-long-logo.svg',
+          src: 'img/logo.svg',
         },
         items: [
           {

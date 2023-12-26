@@ -260,9 +260,15 @@ pre.prism-code {
   font-size: 14px;
 }
 
+.navbar__brand{
+  font-size: 30px;
+}
+
 .navbar__logo {
-  padding: 4px;
-  margin-right: 0;
+  width: 32px;
+  height: 32px;
+  padding: 2px;
+  margin-right: 2;
 }
 
 .menu__link {

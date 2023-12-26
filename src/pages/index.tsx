@@ -2,7 +2,10 @@ import React from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 
+import FeatureLeftSection from '../components/Homepage/FeatureLeftSection';
+import FeatureRightSection from '../components/Homepage/FeatureRightSection';
 import HeroSection from '../components/homepage/HeroSection';
+import HeroBanner from '../components/homepage/HeroBanner';
 import HomeFooter from '../components/homepage/HomeFooter';
 import PrincipleSection from '../components/Homepage/Principlesection';
 
@@ -13,13 +16,53 @@ export default function Home(): JSX.Element {
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />"
     >
-      <HeroSection />
+      <HeroBanner />
+      <FeatureLeftSection 
+        title="Non-intrusive programming model"
+        description="The UI directly operates data, and data modifications directly drive UI updates, without any intermediate layers and concepts."
+        image="/static/landing-page/001.gif"
+      />
+      <FeatureRightSection
+        title="Multi-platforms"
+        description= "Consistent experience across multiple platforms, and easy to expand to new platforms."
+        image="/static/landing-page/002.png"
+      />
+      <br/>
+      <FeatureLeftSection
+        title="Declarative syntax and easy to interact"
+        description="Ribir can interact well with Rust, making your code both a clear view description and a powerful logical expression."
+        image="/static/landing-page/003.gif"
+      />
+      <FeatureRightSection
+        title="Point-to-point view update strategy"
+        description="Compile time generates updates logic of view, no general diff or patch algorithm."
+        image="/static/landing-page/004.gif"
+      />
+      <br/>
+      <FeatureLeftSection
+        title="Developer friendly"
+        description={
+          <ul>
+            <li>
+              Compose your widgets safely using types. 
+            </li>
+            <li>
+              Just use Rust, without any dependencies.
+            </li>
+            <li>
+              Progressive concepts and pay for overhead only when used.
+            </li>
+            <li>
+              Stateful and stateless can be converted to each other.
+            </li>
+          </ul>
+        }
+        image="/static/landing-page/005.png"
+      />
       <div className="relative">
         <div className="absolute top-1/2 bottom-0 -z-10 w-full bg-secondary-800 dark:bg-secondary-900"></div>
         <div className="absolute top-0 bottom-1/2 -z-10 w-full bg-secondary-1000"></div>
       </div>
-
-      <PrincipleSection />
 
       <HomeFooter />
     </Layout>
