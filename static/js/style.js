@@ -1,7 +1,32 @@
-window.onload = function () {
-  setTimeout(() => {
+function docReady(fn) {
+  // see if DOM is already available
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+    setTimeout(fn, 1);
+  } else {
+    document.addEventListener("DOMContentLoaded", fn);
+  }
+}
+
+function setTitleStyle() {
+  const max = 10;
+  let run_times = 0;
+
+  const ret = function () {
     const navbar_title = document.querySelector('.navbar__title');
-    // hack: title color style
-    navbar_title.classList.add('bg-clip-text', 'text-transparent', 'bg-gradient-to-r', 'from-pink-500', 'to-violet-500');
-  }, 200);
-};
+    run_times += 1;
+
+    if (navbar_title) {
+      navbar_title.classList.add('bg-clip-text', 'text-transparent', 'bg-gradient-to-r', 'from-pink-500', 'to-violet-500');
+    } else {
+      if (run_times < max) {
+        requestAnimationFrame(() => {
+          ret();
+        });
+      }
+    }
+  };
+
+  return ret;
+}
+
+docReady(setTitleStyle());
