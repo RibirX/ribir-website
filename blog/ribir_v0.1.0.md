@@ -1,8 +1,9 @@
 # Ribir v0.1.0
 
+![](../static/static/landing-page/hero-banner.png)
+
 After several years of conception, especially the hard work of the past year, we are proud to announce that Ribir v0.1.0 is finally released. 
 
-![](../static/static/landing-page/hero-banner.png)
 
 ## What is Ribir?
 
@@ -59,3 +60,8 @@ The next version of Ribir will focus on the following things:
 ## Changelog
 
 The detailed changelog is available in the [CHANGELOG.md](https://github.com/RibirX/Ribir/blob/master/CHANGELOG.md)
+
+
+## Feedback
+
+Welcome to feedback and star our repo on [GitHub](https://github.com/RibirX/Ribir)
