@@ -12,7 +12,7 @@ const config = {
   tagline: 'Using the Ribir to build everything',
   url: 'https://ribir.org',
   baseUrl: '/',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logo.ico',
 
   organizationName: 'RibirX',
   projectName: 'ribir-website',
@@ -88,31 +88,26 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: 'light',
         links: [
           {
-            title: 'Docs',
+            items:[
+              {
+                html: `
+                  <a href="https://www.ribir.org" target="_blank" rel="noreferrer noopener" style="display: flex; align-items: center;">
+                    <img src="img/logo.svg" width="48" height="48" style="margin-right: 10px;" />
+                    <h2 style="margin: 0; color:black">Ribir</h2>
+                  </a>                
+                `,
+              }
+            ]
+          },
+          {
+            title: 'Learn',
             items: [
               {
                 label: 'Tutorial',
                 to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/ribir',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/ribir',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/ribirx',
               },
             ],
           },
@@ -130,7 +125,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Ribir org. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

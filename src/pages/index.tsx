@@ -1,13 +1,15 @@
 import React from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
+import { Divider,MantineProvider } from '@mantine/core';
 
 import FeatureLeftSection from '../components/Homepage/FeatureLeftSection';
 import FeatureRightSection from '../components/Homepage/FeatureRightSection';
 import HeroSection from '../components/homepage/HeroSection';
 import HeroBanner from '../components/homepage/HeroBanner';
-import HomeFooter from '../components/homepage/HomeFooter';
+import FooterSimple from '../components/homepage/HomeFooter';
 import PrincipleSection from '../components/Homepage/Principlesection';
+import FAQ  from '../components/Homepage/FAQ';
 
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
@@ -59,12 +61,12 @@ export default function Home(): JSX.Element {
         }
         image="/static/landing-page/005.png"
       />
-      <div className="relative">
-        <div className="absolute top-1/2 bottom-0 -z-10 w-full bg-secondary-800 dark:bg-secondary-900"></div>
-        <div className="absolute top-0 bottom-1/2 -z-10 w-full bg-secondary-1000"></div>
-      </div>
+      
+      <hr style={{width: "45%", margin: "auto", marginTop:"100px" , border:"0.1px solid #D9D9D9", borderRadius: "5px"}}/>
 
-      <HomeFooter />
+      <MantineProvider>
+        <FAQ/>
+      </MantineProvider>
     </Layout>
   );
 }

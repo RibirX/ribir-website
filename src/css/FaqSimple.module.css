@@ -1,0 +1,25 @@
+.wrapper {
+  margin-top: calc(var(--mantine-spacing-sm) * 1);
+  padding-top: calc(var(--mantine-spacing-md) * 1);
+  padding-bottom: calc(var(--mantine-spacing-xl) * 2);
+  min-height: rem(650px);
+}
+.title {
+  font-size: 40px;
+  margin-bottom: calc(var(--mantine-spacing-xl) * 2);
+}
+
+.item {
+  border-radius: var(--mantine-radius-md);
+  margin-bottom: var(--mantine-spacing-lg);
+  border: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+}
+
+.itemTitle {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.content {
+  font-size: 20px;
+}
