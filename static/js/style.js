@@ -30,3 +30,13 @@ function setTitleStyle() {
 }
 
 docReady(setTitleStyle());
+
+let previousUrl = location.href;
+const observer = new MutationObserver(function (mutations) {
+  if (location.href !== previousUrl) {
+    previousUrl = location.href;
+    setTitleStyle()();
+  }
+});
+const config = { subtree: true, childList: true };
+observer.observe(document, config);

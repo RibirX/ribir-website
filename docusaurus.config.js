@@ -17,7 +17,7 @@ const config = {
   organizationName: 'RibirX',
   projectName: 'ribir-website',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -25,7 +25,7 @@ const config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'zh'],
   },
 
   plugins: [
@@ -51,7 +51,7 @@ const config = {
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           sidebarPath: './sidebars.js',
-          path: '../Ribir/docs',
+          path: '../Ribir/docs/en',
         },
         blog: {
           showReadingTime: true,
@@ -67,7 +67,6 @@ const config = {
     {
       src: '/js/style.js',
       defer: true,
-      async: true,
     }
   ],
 
@@ -92,6 +91,10 @@ const config = {
           },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
+            type: 'localeDropdown',
+            position: 'right',
+          },
+          {
             href: 'https://github.com/RibirX/Ribir',
             label: 'GitHub',
             position: 'right',
@@ -107,7 +110,7 @@ const config = {
                 // hack: title color style
                 html: `
                   <a href="https://www.ribir.org" target="_blank" rel="noreferrer noopener" style="display: flex; align-items: center;">
-                    <img src="img/logo.svg" width="48" height="48" style="margin-right: 10px;" />
+                    <img src="/img/logo.svg" width="48" height="48" style="margin-right: 10px;" />
                     <h2 class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500" style="font-size: 24px; margin: 0;">Ribir</h2>
                   </a>                
                 `,
