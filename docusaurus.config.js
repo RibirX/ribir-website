@@ -63,6 +63,14 @@ const config = {
     ],
   ],
 
+  scripts: [
+    {
+      src: '/js/style.js',
+      defer: true,
+      async: true,
+    }
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -94,12 +102,13 @@ const config = {
         style: 'light',
         links: [
           {
-            items:[
+            items: [
               {
+                // hack: title color style
                 html: `
                   <a href="https://www.ribir.org" target="_blank" rel="noreferrer noopener" style="display: flex; align-items: center;">
                     <img src="img/logo.svg" width="48" height="48" style="margin-right: 10px;" />
-                    <h2 style="margin: 0; color:black">Ribir</h2>
+                    <h2 class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500" style="font-size: 24px; margin: 0;">Ribir</h2>
                   </a>                
                 `,
               }
