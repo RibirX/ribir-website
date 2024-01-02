@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Ribir Official Website Blog</title>
+        <link>https://ribir.org/blog</link>
+        <description>Ribir Official Website Blog</description>
+        <lastBuildDate>Wed, 27 Dec 2023 06:33:17 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[Ribir v0.1.0]]></title>
+            <link>https://ribir.org/blog/ribir_v0.1.0</link>
+            <guid>https://ribir.org/blog/ribir_v0.1.0</guid>
+            <pubDate>Wed, 27 Dec 2023 06:33:17 GMT</pubDate>
+            <description><![CDATA[After several years of conception, especially the hard work of the past year, we are proud to announce that Ribir v0.1.0 is finally released.]]></description>
+            <content:encoded><![CDATA[<p><img loading="lazy" src="https://ribir.org/assets/images/hero-banner-0b1b66c835ff2c90107672757ac7c206.png" width="3489" height="1548" class="img_ev3q"></p>
+<p>After several years of conception, especially the hard work of the past year, we are proud to announce that Ribir v0.1.0 is finally released.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-is-ribir">What is Ribir?<a href="https://ribir.org/blog/ribir_v0.1.0#what-is-ribir" class="hash-link" aria-label="Direct link to What is Ribir?" title="Direct link to What is Ribir?">​</a></h2>
+<p>Ribir is an open-source Rust GUI framework that helps you build beautiful and native multi-platform applications from a single codebase.</p>
+<p>The architecture overview of Ribir:</p>
+<p><img loading="lazy" src="https://ribir.org/assets/images/architecture-e1441df8563d770aec4108fd5ae0b53f.svg" width="701" height="728" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="build-your-ui-non-intrusive">Build your UI non-intrusive<a href="https://ribir.org/blog/ribir_v0.1.0#build-your-ui-non-intrusive" class="hash-link" aria-label="Direct link to Build your UI non-intrusive" title="Direct link to Build your UI non-intrusive">​</a></h2>
+<p>The most important goal of Ribir is to let you build your UI directly based on your data structure APIs. Any data mutation will trigger a precise UI update. Your focus should be on designing your data structure and its APIs. Then, you can describe your data's UI without intruding on its logic.</p>
+<p>You can abstract your App data structure first and then describe your UI based on its APIs. This process does not necessitate any pre-design of the data structure.</p>
+<ul>
+<li>No additional states</li>
+<li>No additional notification mechanisms</li>
+<li>No inheritance of any base classes</li>
+<li>No other pre-constraints.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="why-rust">Why Rust?<a href="https://ribir.org/blog/ribir_v0.1.0#why-rust" class="hash-link" aria-label="Direct link to Why Rust?" title="Direct link to Why Rust?">​</a></h2>
+<p>Building a high-performance cross-platform framework that compiles natively, we had two options within our purview: C++ and Rust.</p>
+<p>Initially, we were more inclined to choose C++, because C++ has a more mature ecosystem, and we have years of experience in developing large tools based on C++. Although we have been learning and writing Rust for many years, to be honest, we have not used it extensively in a production project. Ultimately, the two core reasons that led us to choose Rust are:</p>
+<ul>
+<li>The <code>trait</code>: Using Rust traits to implement our non-intrusive design feels so natural.</li>
+<li>Procedure macro: Using Rust's procedural macros for our DSL implementation eliminates the need for extra tools. When combined with Rust's toolchain, it offers an out-of-the-box solution, enhancing the overall development experience.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-is-the-current-status-of-ribir">What is the current status of Ribir?<a href="https://ribir.org/blog/ribir_v0.1.0#what-is-the-current-status-of-ribir" class="hash-link" aria-label="Direct link to What is the current status of Ribir?" title="Direct link to What is the current status of Ribir?">​</a></h2>
+<p>The goal of the first version of Ribir is to finish the core framework and answer our questions about the feasibility of the design.</p>
+<p>We use it to build examples and build some apps for our daily work. And we are satisfied with the experience of using it.</p>
+<p>Although we implemented almost all the core features in the first version of Ribir. That seems you can use it to do many things. You need to know that it is still in a very early stage:</p>
+<ul>
+<li>We only test and use it in a very limited environment</li>
+<li>There exist several known issues, including memory leaks and performance-related concerns, that are still awaiting resolution.</li>
+<li>Many APIs may break in the next version</li>
+</ul>
+<p>So, we are very happy to share it with you. We hope you can try it out and give us feedback. But we don't recommend you to use it in production environments yet.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-next-step">The next step<a href="https://ribir.org/blog/ribir_v0.1.0#the-next-step" class="hash-link" aria-label="Direct link to The next step" title="Direct link to The next step">​</a></h2>
+<p>After the first version of Ribir, it's time to turn us to a more practical direction. We are confident that we will iterate quickly and stable more features that the production environment needs.</p>
+<p>The next version of Ribir will focus on the following things:</p>
+<ul>
+<li>Enable WebAssembly support, so we can build web apps and share demos online.</li>
+<li>Introduce a stable and user-friendly overlay system to elegantly handle tooltips, popups, and other overlay UI elements.</li>
+<li>Stabilize the APIs of BuiltinObj and state, allowing for automatic cycle-reference breaking and memory leak prevention in most scenarios, and providing a reliable option for state unsubscribing.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="changelog">Changelog<a href="https://ribir.org/blog/ribir_v0.1.0#changelog" class="hash-link" aria-label="Direct link to Changelog" title="Direct link to Changelog">​</a></h2>
+<p>The detailed changelog is available in the <a href="https://github.com/RibirX/Ribir/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer">CHANGELOG.md</a></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="feedback">Feedback<a href="https://ribir.org/blog/ribir_v0.1.0#feedback" class="hash-link" aria-label="Direct link to Feedback" title="Direct link to Feedback">​</a></h2>
+<p>Welcome to feedback and star our repo on <a href="https://github.com/RibirX/Ribir" target="_blank" rel="noopener noreferrer">GitHub</a></p>]]></content:encoded>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[314],{5829:t=>{t.exports=JSON.parse('{"title":"\u5feb\u901f\u4e0a\u624b","slug":"/category/getting-started","permalink":"/zh/docs/category/getting-started","navigation":{"next":{"title":"\u521b\u5efa\u4e00\u4e2a Ribir \u5e94\u7528","permalink":"/zh/docs/get_started/creating_an_application"}}}')}}]);
