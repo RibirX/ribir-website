@@ -8,7 +8,8 @@ function docReady(fn) {
 }
 
 function setTitleStyle() {
-  const max = 10;
+  // hack for title color style, try 100 times in case of slow loading.😂
+  const max = 100;
   let run_times = 0;
 
   const ret = function () {
