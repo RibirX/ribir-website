@@ -7,6 +7,7 @@ import FeatureLeftSection from '../components/Homepage/FeatureLeftSection';
 import FeatureRightSection from '../components/Homepage/FeatureRightSection';
 import HeroBanner from '../components/homepage/HeroBanner';
 import FAQ from '../components/Homepage/FAQ';
+import Trust from '../components/Homepage/TrustBy';
 
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
@@ -57,6 +58,14 @@ export default function Home(): JSX.Element {
           </ul>
         }
         image="/static/landing-page/005.png"
+      />
+
+      <hr style={{ width: "45%", margin: "auto", marginTop: "100px", border: "0.1px solid #D9D9D9", borderRadius: "5px" }} />
+      <Trust
+        title="Polestar Chat"
+        description="A Rust open source cross-platform ChatGPT/Gemini UI (Linux / Win / MacOS)."
+        image="/static/landing-page/Polestar_banner.png"
+        link="https://github.com/RibirX/polestar_chat"
       />
 
       <hr style={{ width: "45%", margin: "auto", marginTop: "100px", border: "0.1px solid #D9D9D9", borderRadius: "5px" }} />
