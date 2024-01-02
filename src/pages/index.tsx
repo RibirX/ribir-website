@@ -62,7 +62,7 @@ export default function Home(): JSX.Element {
       <hr style={{ width: "45%", margin: "auto", marginTop: "100px", border: "0.1px solid #D9D9D9", borderRadius: "5px" }} />
 
       {/* hack: title color style, it can load tailwind utilities style */}
-      <div style={{ display: 'none' }} className={"bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500"}></div>
+      <div style={{ display: 'none' }} className={"bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-green-300"}></div>
 
       <MantineProvider>
         <FAQ />
