@@ -111,7 +111,7 @@ const config = {
                 html: `
                   <a href="https://www.ribir.org" target="_blank" rel="noreferrer noopener" style="display: flex; align-items: center;">
                     <img src="/img/logo.svg" width="48" height="48" style="margin-right: 10px;" />
-                    <h2 class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500" style="font-size: 24px; margin: 0;">Ribir</h2>
+                    <h2 class="bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-green-300" style="font-size: 30px; margin: 0;">Ribir</h2>
                   </a>                
                 `,
               }

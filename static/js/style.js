@@ -16,7 +16,7 @@ function setTitleStyle() {
     run_times += 1;
 
     if (navbar_title) {
-      navbar_title.classList.add('bg-clip-text', 'text-transparent', 'bg-gradient-to-r', 'from-pink-500', 'to-violet-500');
+      navbar_title.classList.add('bg-clip-text', 'text-transparent', 'bg-gradient-to-r', 'from-blue-700', 'to-green-300');
     } else {
       if (run_times < max) {
         requestAnimationFrame(() => {
