@@ -64,7 +64,7 @@ export default function Home(): JSX.Element {
       <Trust
         title="Polestar Chat"
         description="A Rust open source cross-platform ChatGPT/Gemini UI (Linux / Win / MacOS)."
-        image="/static/landing-page/Polestar_banner.png"
+        image="/static/landing-page/polestar_banner.png"
         link="https://github.com/RibirX/polestar_chat"
       />
 

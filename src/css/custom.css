@@ -268,11 +268,11 @@ pre.prism-code {
   width: 32px;
   height: 32px;
   padding: 2px;
-  margin-right: 2;
 }
 
-.navbar__brand .navbar__logo img {
-  display: block;
+.navbar__brand {
+  line-height: 32px;
+  vertical-align: middle;
 }
 
 .menu__link {
