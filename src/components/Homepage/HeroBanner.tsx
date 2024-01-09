@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
+import { translate } from '@docusaurus/Translate';
 
 export default function HeroBanner() {
   return (
@@ -14,7 +15,12 @@ export default function HeroBanner() {
         </p>
         <div className="mt-6 lg:mb-20 sm:mb-10 items-center">
           <Link
-            href="/docs/getting_started/quick-start"
+            href={
+              translate({
+                message: '/docs/get_started/quick_start',
+                description: 'The link to the getting started page',
+              })
+            }
             className="rounded-sm bg-white px-12 py-2.5 text-center font-semibold text-blue no-underline-links"
           >
             Getting started

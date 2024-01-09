@@ -28,6 +28,10 @@ const config = {
     locales: ['en', 'zh'],
   },
 
+  markdown: {
+    format: 'md'
+  },
+
   plugins: [
     async function myPlugin(context, options) {
       return {
