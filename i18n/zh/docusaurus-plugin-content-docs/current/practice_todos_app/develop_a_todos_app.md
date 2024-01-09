@@ -6,8 +6,7 @@
 
 > 你将了解：
 >
-> - 如何构建一个完整的 Ribir 应用
-> - Ribir 应用推荐的设计方式
+> - 如何用 Ribir 推荐的方式开发设计一个 Todos 引用
 
 ## 前提条件
 
@@ -19,9 +18,9 @@
 
 ## 最终效果展示
 
-<img src="../../assets/todos-demo.gif" width=640px/>
+<img src="/static/img/todos-demo.gif" width=640px/>
 
-## 整体结构
+## 代码结构
 
 作为一个 GUI 框架，Ribir 最重要的一个目标就是让你在应用设计之初，可以专注于数据结构和算法（业务逻辑）的抽象，而完全不用考虑 UI。UI 则作为一个完全独立的模块开发，两者之间通过前者定义的 API 完成连接。
 
@@ -38,7 +37,7 @@
 
 ## 内核开发
 
-Ribir 与通常的 GUI 框架不同，不会一开始就考虑做控件的划分、层级结构的组织，UI 状态的管理等。Ribir 会推荐你先抽象好应用的核心数据结构和逻辑，设计定义好 API，再基于你的数据和视觉效果来组织你的 UI。
+Ribir 不会一开始就考虑做控件的划分、层级结构的组织，UI 状态的管理等。Ribir 会推荐你先抽象好应用的核心数据结构和逻辑，设计定义好 API，再基于你的数据和视觉效果来组织你的 UI。
 
 当然，如果是多人开发，上面这些工作可以是并行展开的。因为你需要独自完成全本章教程，所以让我们按顺序一步步来。第一步先来完成核心数据结构部分的开发，并完全不去考虑 UI 的事情。
 
@@ -132,12 +131,12 @@ impl TaskId {
 
 在正式进入 UI 开发之前，我们先对照原型图划分几个主要部分，以方便后文的交流：
 
-<img src="../../assets/todos-widgets.png" width=830px/>
+<img src="/static/img/todos-widgets.png" width=830px/>
 
 1. Title 标题区，展示应用的名称
 2. Input 区，输入任务内容，按回车键添加任务
 3. Task Tabs，任务选项卡，分为 All, Active 和 Completed 三个选项卡，分别展示对应任务列表
-4. Task，单个任务的展示，提供标记完成和删除功能。
+4. Task，单个任务的展示，提供编辑，标记完成和删除功能。
 
 ### 用 Ribir 搭建出整体结构
 
@@ -172,7 +171,7 @@ fn main() {
 
 在 `main.rs` 中，先创建了一个 `State` 来保存 `Todos` 数据，并将它当做根 widget 传递给 `App::run` 方法，这样应用就可以运行起来了。
 
-同时对 `todos` 的变更进行了监听，并每隔 5 秒钟将 `todos` 的变更保存到磁盘上。当然，你的应用现在还没有任何交互，无法对 `todos` 进行修改，所以保存逻辑不会触发，但很快当你添加了交互，就能用的上这个自动保存的功能了。
+同时对 `todos` 的变更进行了监听，并将其每隔 5 秒钟保存到磁盘上。当然，你的应用现在还没有任何交互，无法对 `todos` 进行修改，所以保存逻辑不会触发，但很快当你添加了交互，就能用的上这个自动保存的功能了。
 
 注意到 `watch!($todo;)` 中的 `;` 号了吗？ 这是故意的，因为不想接收 `todos` 的变更结果，而只想知道它发生了变化，因为我们要在订阅函数中去读取它的最新值去保存。
 
@@ -238,7 +237,7 @@ impl Compose for Todos {
 }
 ```
 
-好在，Ribir 非常易于和 Rust 交互，还记得在[组合 widget](../快速上手/快速入门.md#组合-widget) 中讲到的通过变量声明孩子吗？
+好在，Ribir 非常易于和 Rust 交互，还记得在[组合 widget](../get_started/quick_start.md#compose-widget--描述你的数据结构) 中讲到的通过变量声明孩子吗？
 
 ```rust ignore
 
@@ -304,7 +303,7 @@ fn task_lists(this: &impl StateWriter<Value = Todos>, filter: fn(&Task) -> bool)
 }
 ```
 
-这个函数控件用 `Lists` 来呈现整个列表的，并通过 `pipe!($this;).map(move |_| { ... })` 监听 `this` 的变化，确保任务列表的内容会随着 `this` 的变化而变化，最后通过一个 `VScrollBar` 来提供滚动能力。
+这个函数控件用 `Lists` 来呈现整个列表的，并通过 `pipe!($this;).map(move |_| { ... })` 监听 `this` 的修改，确保任务列表的内容会随着 `this` 的变化而变化，最后通过一个 `VScrollBar` 来提供滚动能力。
 
 注意到状态分裂这一行了吗？
   
@@ -315,7 +314,7 @@ let task = this.split_writer(
 );
 ```
 
-它从 `this` 中分裂出一个 `Task` 的 `Writer`, 并把它传递给 `task_item` 函数控件，这样在 `task_item` 控件中就可以直接修改 `Task` 数据而不影响整个 `Todos` 了。
+它从 `this` 中分裂出一个 `Task` 的 `Writer`, 并把它传递给 `task_item` 函数控件，这样在 `task_item` 控件中就可以直接修改 `Task` 数据而不影响整个 `Todos` 的界面了。
 
 在`task_lists`中，有一个 tricky 的地方，你一定也注意到了：
 
@@ -365,7 +364,7 @@ where
 
 接着，用 `Checkbox` 来展示任务是否完成，并监听它的变化，将变化同步回 `Task` 中。
 
-最后，用 `ListItem` 来展示一个完整任务，将 `Checkbox`, 删除按钮和标题组合在一起。`ListItem` 也是 Ribir widgets 库提供的一个 widget，并规定了自己的孩子类型，这里用到了 `HeadlineText` 来展示标题， `Leading` 表示头部内容，`Trailing` 表示尾部内容。
+最后，用 `ListItem` 来展示一个完整任务，将 `Checkbox`, 删除按钮和任务内容组合在一起。`ListItem` 也是 Ribir widgets 库提供的一个 widget，并规定了自己的孩子类型，这里用到了 `HeadlineText` 来展示标题， `Leading` 表示头部内容，`Trailing` 表示尾部内容。
 
 现在，在 `Todos` 的 `compose` 中找到 `TabPane` 并用 `task_lists` 来替换掉原来的 "coming soon!" 吧：
 
@@ -399,7 +398,7 @@ where
 
 你的 Todos 应用已经基本完成了，不过还差最后一步: 增加双击任务进行编辑内容的功能。
 
-通过双击来记录任务的编辑状态，当一个任务是编辑状态时，展示 `task_item`, 否则展示一个 `Input`。
+通过双击来记录任务的编辑状态，当一个任务不是编辑状态时，展示 `task_item`, 否则展示一个 `Input`。
 
 回到 `task_lists` 中，做如下修改：
 
@@ -466,7 +465,7 @@ fn_widget! {
 
 ## 完善样式和动画
 
-在上面的教程中，你已经完成了一个完整的 Todos 应用，但是它的样式和交互还不够漂亮和现代，如果你想进一步完善你的应用，你可以到[完善样式和动画](./完善样式和动画.md)继续 Todos 应用的旅程。
+在上面的教程中，你已经完成了一个完整的 Todos 应用，但是它的样式和交互还不够漂亮和现代，如果你想进一步完善你的应用，你可以到[完善样式和动画](./improving_styles_and_animations.md)继续 Todos 应用的旅程。
 
 ## 完整代码
 
@@ -614,7 +613,6 @@ impl Compose for Todos {
 fn task_lists(this: &impl StateWriter<Value = Todos>, cond: fn(&Task) -> bool) -> GenWidget {
   let this = this.clone_writer();
   fn_widget! {
-    // new: 新增一个状态，记录编辑任务的 Id
     let editing = Stateful::new(None);
 
     @VScrollBar {
