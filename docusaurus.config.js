@@ -51,7 +51,6 @@ const config = {
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           sidebarPath: './sidebars.js',
-          path: '../Ribir/docs/en',
         },
         blog: {
           showReadingTime: true,

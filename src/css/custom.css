@@ -4,7 +4,7 @@
   font-display: block;
   font-style: normal;
   font-named-instance: 'Regular';
-  src: url(/static/fonts/Inter-roman.var.woff2) format('woff2');
+  src: url(/fonts/Inter-roman.var.woff2) format('woff2');
 }
 
 @font-face {
@@ -13,15 +13,15 @@
   font-display: block;
   font-style: italic;
   font-named-instance: 'Italic';
-  src: url(/static/fonts/Inter-italic.var.woff2) format('woff2');
+  src: url(/fonts/Inter-italic.var.woff2) format('woff2');
 }
 
 @font-face {
   font-family: Fira Code VF;
   font-weight: 300 700;
   font-style: normal;
-  src: url(/static/fonts/FiraCode-VF.woff2) format('woff2-variations'),
-    url(/static/fonts/FiraCode-VF.woff) format('woff-variations');
+  src: url(/fonts/FiraCode-VF.woff2) format('woff2-variations'),
+    url(/fonts/FiraCode-VF.woff) format('woff-variations');
 }
 
 @tailwind base;
@@ -99,24 +99,20 @@
 
 @layer components {
   .noise-bg {
-    background-image: url('/static/landing-page/grid-light.svg'),
-      url('/static/landing-page/background.png'),
-      linear-gradient(
-        to bottom,
+    background-image: url('/landing-page/grid-light.svg'),
+      url('/landing-page/background.png'),
+      linear-gradient(to bottom,
         transparent 40%,
-        rgb(var(--docs-color-secondary-700))
-      );
+        rgb(var(--docs-color-secondary-700)));
     background-size: 48px 48px, 100% 100%, 100%;
   }
 
   html[data-theme='dark'] .noise-bg {
-    background-image: url('/static/landing-page/grid-dark.svg'),
-      url('/static/landing-page/background.png'),
-      linear-gradient(
-        to bottom,
+    background-image: url('/landing-page/grid-dark.svg'),
+      url('/landing-page/background.png'),
+      linear-gradient(to bottom,
         transparent 40%,
-        rgb(var(--docs-color-secondary-900))
-      );
+        rgb(var(--docs-color-secondary-900)));
   }
 
   /* .sdk-section {
@@ -252,7 +248,7 @@ pre.prism-code {
 }
 
 .emoji {
-  font-family: Apple Color Emoji,Segoe UI Emoji,Noto Color Emoji,Android Emoji,EmojiSymbols,EmojiOne Mozilla,Twemoji Mozilla,Segoe UI Symbol,Noto Color Emoji Compat,emoji,noto-emojipedia-fallback;
+  font-family: Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, Android Emoji, EmojiSymbols, EmojiOne Mozilla, Twemoji Mozilla, Segoe UI Symbol, Noto Color Emoji Compat, emoji, noto-emojipedia-fallback;
 }
 
 .navbar__item,
@@ -283,7 +279,7 @@ pre.prism-code {
   background: none;
 }
 
-ul.menu__list > li > a.menu__link--active {
+ul.menu__list>li>a.menu__link--active {
   border-right: 1px solid var(--ifm-color-primary);
 }
 
@@ -459,21 +455,15 @@ aside.theme-doc-sidebar-container {
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' fill='none' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.293 4.293a1 1 0 0 0 0 1.414L14.586 12l-6.293 6.293a1 1 0 1 0 1.414 1.414l7-7a1 1 0 0 0 0-1.414l-7-7a1 1 0 0 0-1.414 0Z' fill='%23181818'/%3E%3C/svg%3E");
 }
 
-html[data-theme='dark']
-  .theme-doc-sidebar-container
-  button[title='Collapse sidebar'] {
+html[data-theme='dark'] .theme-doc-sidebar-container button[title='Collapse sidebar'] {
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' fill='none' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.707 4.293a1 1 0 0 1 0 1.414L9.414 12l6.293 6.293a1 1 0 0 1-1.414 1.414l-7-7a1 1 0 0 1 0-1.414l7-7a1 1 0 0 1 1.414 0Z' fill='%23ffffff'/%3E%3C/svg%3E");
 }
 
-html[data-theme='dark']
-  .theme-doc-sidebar-container
-  div[title='Expand sidebar'] {
+html[data-theme='dark'] .theme-doc-sidebar-container div[title='Expand sidebar'] {
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' fill='none' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.293 4.293a1 1 0 0 0 0 1.414L14.586 12l-6.293 6.293a1 1 0 1 0 1.414 1.414l7-7a1 1 0 0 0 0-1.414l-7-7a1 1 0 0 0-1.414 0Z' fill='%23ffffff'/%3E%3C/svg%3E");
 }
 
-.theme-doc-sidebar-container
-  :is(div[title='Expand sidebar'], button[title='Collapse sidebar'])
-  svg {
+.theme-doc-sidebar-container :is(div[title='Expand sidebar'], button[title='Collapse sidebar']) svg {
   display: none;
 }
 
@@ -555,8 +545,8 @@ html[data-theme='dark']
   line-height: 1.2;
 }
 
-.sections-menu-trigger .item-text > svg,
-.sections-menu-item .item-text > svg {
+.sections-menu-trigger .item-text>svg,
+.sections-menu-item .item-text>svg {
   height: 32px;
   width: 32px;
   margin-right: 8px;
@@ -721,12 +711,12 @@ code[data-code='required'] {
   @apply bg-primary-200/80 text-white dark:bg-primary-100/60;
 }
 
-.dropdown > .navbar__link {
+.dropdown>.navbar__link {
   display: flex;
   align-items: center;
 }
 
-.dropdown > .navbar__link:after {
+.dropdown>.navbar__link:after {
   content: '';
   border: none;
   position: static;
@@ -739,15 +729,15 @@ code[data-code='required'] {
   background-repeat: no-repeat;
 }
 
-html[data-theme='dark'] .dropdown > .navbar__link:after {
+html[data-theme='dark'] .dropdown>.navbar__link:after {
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' fill='none' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.293 8.293a1 1 0 0 1 1.414 0L12 14.586l6.293-6.293a1 1 0 1 1 1.414 1.414l-7 7a1 1 0 0 1-1.414 0l-7-7a1 1 0 0 1 0-1.414Z' fill='%23ffffff'/%3E%3C/svg%3E");
 }
 
-.dropdown:hover > .navbar__link:after {
+.dropdown:hover>.navbar__link:after {
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' fill='none' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.293 8.293a1 1 0 0 1 1.414 0L12 14.586l6.293-6.293a1 1 0 1 1 1.414 1.414l-7 7a1 1 0 0 1-1.414 0l-7-7a1 1 0 0 1 0-1.414Z' fill='%231a90ff'/%3E%3C/svg%3E") !important;
 }
 
-.ribir-dropdown + ul.dropdown__menu {
+.ribir-dropdown+ul.dropdown__menu {
   @apply bg-secondary-900 p-0;
 }
 
@@ -756,7 +746,7 @@ html[data-theme='dark'] .dropdown > .navbar__link:after {
   @apply text-xs;
 }
 
-.ribir-dropdown .sdk-link > img {
+.ribir-dropdown .sdk-link>img {
   @apply h-6 w-6;
 }
 
@@ -827,7 +817,7 @@ input[type='search']::-webkit-search-results-decoration {
  ![Image ALT](./path/to/image)
  _my image caption_
  */
-img + em {
+img+em {
   text-align: center;
   display: block;
   margin-top: 1rem;
@@ -883,14 +873,15 @@ img[src$='#terminal'] {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.has-sub-sections > h3 {
+.has-sub-sections>h3 {
   margin-bottom: 1.5rem;
 }
 
-.has-sub-sections > .section-content {
+.has-sub-sections>.section-content {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
-.has-sub-sections > .section-content > .homepage-section {
+
+.has-sub-sections>.section-content>.homepage-section {
   margin-bottom: 1rem;
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
@@ -909,7 +900,7 @@ img[src$='#terminal'] {
   margin-top: -0.5rem;
 }
 
-.has-sub-sections > .section-content .section-description {
+.has-sub-sections>.section-content .section-description {
   font-size: 14px;
 }
 
@@ -970,6 +961,7 @@ img[src$='#terminal'] {
   .section-content {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
+
   .two-cols .section-content {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
@@ -979,6 +971,7 @@ img[src$='#terminal'] {
   img[alt='PresetEditor'] {
     max-width: 600px;
   }
+
   img[alt='APIKeys'] {
     max-width: 600px;
   }
@@ -992,7 +985,7 @@ img[src$='#terminal'] {
   @apply mt-4;
 }
 
-.notesContainer h4{
+.notesContainer h4 {
   @apply mb-8;
 }
 
@@ -1002,7 +995,7 @@ img[src$='#terminal'] {
 
 .notesContainer .type {
   width: 11rem;
-  border-right:2px solid;
+  border-right: 2px solid;
   color: #757275;
   @apply border-b-0 align-top font-bold;
 }
@@ -1029,7 +1022,7 @@ img[src$='#terminal'] {
   @apply py-1;
 }
 
-.sublist tr:last-child > td {
+.sublist tr:last-child>td {
   @apply border-0;
 }
 
