@@ -1,6 +1,6 @@
 # Ribir v0.1.0
 
-![](../static/static/landing-page/hero-banner.png)
+![](/landing-page/hero-banner.png)
 
 After several years of conception, especially the hard work of the past year, we are proud to announce that Ribir v0.1.0 is finally released. 
 
@@ -11,7 +11,7 @@ Ribir is an open-source Rust GUI framework that helps you build beautiful and na
 
 The architecture overview of Ribir:
 
-![](../static/img/architecture.svg)
+![](/img/architecture.svg)
 
 ## Build your UI non-intrusive
 

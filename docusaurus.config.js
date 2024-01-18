@@ -40,6 +40,12 @@ const config = {
         },
       };
     },
+    () => ({
+      name: "resolve-symlinks",
+      configureWebpack() {
+        return { resolve: { symlinks: false } };
+      },
+    }),
   ],
 
   presets: [
@@ -51,7 +57,6 @@ const config = {
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           sidebarPath: './sidebars.js',
-          path: '../Ribir/docs/en',
         },
         blog: {
           showReadingTime: true,
@@ -98,6 +103,12 @@ const config = {
             href: 'https://github.com/RibirX/Ribir',
             label: 'GitHub',
             position: 'right',
+          },
+          {
+            type: 'docsVersionDropdown',
+            position: 'left',
+            dropdownItemsAfter: [{ to: '/versions', label: 'All versions' }],
+            dropdownActiveClassDisabled: true,
           },
         ],
       },

@@ -1,0 +1,64 @@
+name: "Sync Docs from Ribir"
+
+on:
+  # Allow manual triggering
+  # or `Ribir` pushed
+  workflow_dispatch:
+    inputs:
+      branch_ref:
+        description: "Ribir branch ref"
+        required: true
+        type: string
+env: 
+  DOCS_DIR: "uninitialized"
+  CHINESE_DOCS_DIR: "uninitialized"
+jobs:
+  sync_docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout website repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.RIBIR_RELEASE }}
+      - name: Checkout docs
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.RIBIR_RELEASE }}
+          repository: RibirX/Ribir
+          ref: ${{ inputs.branch_ref }}
+          path: ribir_repo
+      - name: Envrionment settings for master
+        if: inputs.branch_ref == 'refs/heads/master'
+        run: |
+          echo "DOCS_DIR=docs" >> $GITHUB_ENV
+          echo "CHINESE_DOCS_DIR=i18n/zh/docusaurus-plugin-content-docs/current" >> $GITHUB_ENV
+      - name : Envrionment settings for release
+        if: startsWith(inputs.branch_ref, 'refs/heads/release')
+        run: |
+          npm install
+          version=$(echo '${{ inputs.branch_ref }}' | grep -oP '[0-9]+\.[0-9]+\.x')
+          echo "DOCS_DIR=versioned_docs/version-$version" >> $GITHUB_ENV
+          echo "CHINESE_DOCS_DIR=i18n/zh/docusaurus-plugin-content-docs/version-$version" >> $GITHUB_ENV
+          # create versioned docs if not exist
+          [ ! -d "versioned_docs/$version"  ] && npm install && npm run docusaurus docs:$version
+      - name: Move docs to website
+        run: |
+          echo "Move docs to website"
+          rm -r ${{env.DOCS_DIR}}
+          mv ribir_repo/docs/en ${{env.DOCS_DIR}}
+          rm -r ${{env.CHINESE_DOCS_DIR}}
+          mv ribir_repo/docs/zh ${{env.CHINESE_DOCS_DIR}}
+          rm -r ribir_repo
+
+          echo "Fix assets link"
+          ln -sf ../../../../${{env.DOCS_DIR}}/assets  ./${{ env.CHINESE_DOCS_DIR}}/assets
+
+      - name: submit docs
+        run: |
+          git config --global user.name "RChangelog[bot]"
+          git config --global user.email 155627257+RChangelog[bot]@users.noreply.github.com
+          git add .
+          git commit -m "Sync docs of Ribir@${{ inputs.branch_ref }}"
+          git push
+        
+      

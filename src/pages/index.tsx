@@ -5,7 +5,7 @@ import { MantineProvider } from '@mantine/core';
 
 import FeatureLeftSection from '../components/Homepage/FeatureLeftSection';
 import FeatureRightSection from '../components/Homepage/FeatureRightSection';
-import HeroBanner from '../components/homepage/HeroBanner';
+import HeroBanner from '../components/Homepage/HeroBanner';
 import FAQ from '../components/Homepage/FAQ';
 import Trust from '../components/Homepage/TrustBy';
 
@@ -20,23 +20,23 @@ export default function Home(): JSX.Element {
       <FeatureLeftSection
         title="Non-intrusive programming model"
         description="The UI directly operates data, and data modifications directly drive UI updates, without any intermediate layers and concepts."
-        image="/static/landing-page/001.gif"
+        image="/landing-page/001.gif"
       />
       <FeatureRightSection
         title="Multi-platforms"
         description="Consistent experience across multiple platforms, and easy to expand to new platforms."
-        image="/static/landing-page/002.png"
+        image="/landing-page/002.png"
       />
       <br />
       <FeatureLeftSection
         title="Declarative syntax and easy to interact"
         description="Ribir can interact well with Rust, making your code both a clear view description and a powerful logical expression."
-        image="/static/landing-page/003.gif"
+        image="/landing-page/003.gif"
       />
       <FeatureRightSection
         title="Point-to-point view update strategy"
         description="Compile time generates updates logic of view, no general diff or patch algorithm."
-        image="/static/landing-page/004.gif"
+        image="/landing-page/004.gif"
       />
       <br />
       <FeatureLeftSection
@@ -57,14 +57,14 @@ export default function Home(): JSX.Element {
             </li>
           </ul>
         }
-        image="/static/landing-page/005.png"
+        image="/landing-page/005.png"
       />
 
       <hr style={{ width: "45%", margin: "auto", marginTop: "100px", border: "0.1px solid #D9D9D9", borderRadius: "5px" }} />
       <Trust
         title="Polestar Chat"
         description="A Rust open source cross-platform ChatGPT/Gemini UI (Linux / Win / MacOS)."
-        image="/static/landing-page/polestar_banner.png"
+        image="/landing-page/polestar_banner.png"
         link="https://github.com/RibirX/polestar_chat"
       />
 
