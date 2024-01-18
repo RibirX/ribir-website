@@ -14,7 +14,7 @@ export default function HeroBanner() {
         </p>
         <div className="mt-6 lg:mb-20 sm:mb-10 items-center">
           <Link
-            href="/docs/getting_started/quick-start"
+            href="/docs/get_started/quick_start"
             className="rounded-sm bg-white px-12 py-2.5 text-center font-semibold text-blue no-underline-links"
           >
             Getting started
