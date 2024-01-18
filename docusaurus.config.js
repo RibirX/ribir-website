@@ -107,7 +107,6 @@ const config = {
           {
             type: 'docsVersionDropdown',
             position: 'left',
-            dropdownItemsAfter: [{ to: '/versions', label: 'All versions' }],
             dropdownActiveClassDisabled: true,
           },
         ],
@@ -133,7 +132,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/intro',
+                to: '/docs/introduction',
               },
             ],
           },
