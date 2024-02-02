@@ -43,21 +43,19 @@ jobs:
           echo "DOCS_DIR=versioned_docs/version-$version" >> $GITHUB_ENV
           echo "CHINESE_DOCS_DIR=i18n/zh/docusaurus-plugin-content-docs/version-$version" >> $GITHUB_ENV
           # create versioned docs if not exist
-          [ ! -d "versioned_docs/$version"  ] && npm install && npm run docusaurus docs:$version
+          [ ! -d "versioned_docs/$version"  ] && npm install && npm run docusaurus docs:version $version
       - name: Move docs to website
         run: |
           echo "Replace version"
-          cd ribir_repo
-          latest_version=$(git describe --tags --abbrev=0 | grep -oP '(?<=v)\S*')
-          sed -i "s/@RIBIR_VERSION/$latest_version/g" `grep -rl "@RIBIR_VERSION" ./docs`
-          cd ..
+          latest_version=$(git -C ribir_repo describe --tags --abbrev=0 | grep -oP '(?<=v)\S*')
+          sed -i "s/@RIBIR_VERSION/$latest_version/g" `grep -rl "@RIBIR_VERSION" ribir_repo/docs`
 
           echo "Move docs to website"
-          rm -r ${{env.DOCS_DIR}}
+          rm -rf ${{env.DOCS_DIR}}
           mv ribir_repo/docs/en ${{env.DOCS_DIR}}
-          rm -r ${{env.CHINESE_DOCS_DIR}}
+          rm -rf ${{env.CHINESE_DOCS_DIR}}
           mv ribir_repo/docs/zh ${{env.CHINESE_DOCS_DIR}}
-          rm -r ribir_repo
+          rm -rf ribir_repo
 
           echo "Fix assets link"
           ln -sf ../../../../${{env.DOCS_DIR}}/assets  ./${{ env.CHINESE_DOCS_DIR}}/assets
