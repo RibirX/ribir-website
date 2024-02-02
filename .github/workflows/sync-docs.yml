@@ -29,6 +29,7 @@ jobs:
           repository: RibirX/Ribir
           ref: ${{ inputs.branch_ref }}
           path: ribir_repo
+          fetch-depth: 0
       - name: Envrionment settings for master
         if: inputs.branch_ref == 'refs/heads/master'
         run: |
@@ -45,6 +46,12 @@ jobs:
           [ ! -d "versioned_docs/$version"  ] && npm install && npm run docusaurus docs:$version
       - name: Move docs to website
         run: |
+          echo "Replace version"
+          cd ribir_repo
+          latest_version=$(git describe --tags --abbrev=0 | grep -oP '(?<=v)\S*')
+          sed -i "s/@RIBIR_VERSION/$latest_version/g" `grep -rl "@RIBIR_VERSION" ./docs`
+          cd ..
+
           echo "Move docs to website"
           rm -r ${{env.DOCS_DIR}}
           mv ribir_repo/docs/en ${{env.DOCS_DIR}}
