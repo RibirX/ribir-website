@@ -79,12 +79,13 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       colorMode: {
+        defaultMode: 'light',
         disableSwitch: true,
       },
       navbar: {
         title: 'Ribir',
         logo: {
-          alt: 'Ribir LOGO',
+          alt: 'Ribir',
           src: 'img/logo.svg',
         },
         items: [

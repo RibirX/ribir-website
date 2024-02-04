@@ -141,6 +141,14 @@ code {
   font-variant-ligatures: none;
 }
 
+html {
+  background-color: var(--ifm-background-color);
+}
+
+[data-theme="light"] {
+  --ifm-background-color: var(--docs-color-background);
+}
+
 /* UI Kit tokens */
 body {
   --ribir-colors-video-bg: 50 50 50;
