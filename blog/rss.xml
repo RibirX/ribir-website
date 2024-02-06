@@ -4,7 +4,7 @@
         <title>Ribir Official Website Blog</title>
         <link>https://ribir.org/blog</link>
         <description>Ribir Official Website Blog</description>
-        <lastBuildDate>Tue, 06 Feb 2024 12:34:45 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 06 Feb 2024 12:44:53 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -12,14 +12,14 @@
             <title><![CDATA[Ribir v0.1.0]]></title>
             <link>https://ribir.org/blog/ribir_v0.1.0</link>
             <guid>https://ribir.org/blog/ribir_v0.1.0</guid>
-            <pubDate>Tue, 06 Feb 2024 12:34:45 GMT</pubDate>
+            <pubDate>Tue, 06 Feb 2024 12:44:53 GMT</pubDate>
             <description><![CDATA[After several years of conception, especially the hard work of the past year, we are proud to announce that Ribir v0.1.0 is finally released.]]></description>
             <content:encoded><![CDATA[<p><img loading="lazy" src="https://ribir.org/assets/images/hero-banner-0b1b66c835ff2c90107672757ac7c206.png" width="3489" height="1548" class="img_ev3q"></p>
 <p>After several years of conception, especially the hard work of the past year, we are proud to announce that Ribir v0.1.0 is finally released.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-is-ribir">What is Ribir?<a href="https://ribir.org/blog/ribir_v0.1.0#what-is-ribir" class="hash-link" aria-label="Direct link to What is Ribir?" title="Direct link to What is Ribir?">​</a></h2>
 <p>Ribir is an open-source Rust GUI framework that helps you build beautiful and native multi-platform applications from a single codebase.</p>
 <p>The architecture overview of Ribir:</p>
-<p><img loading="lazy" src="https://ribir.org/assets/images/architecture-e1441df8563d770aec4108fd5ae0b53f.svg" width="701" height="728" class="img_ev3q"></p>
+<p><img loading="lazy" src="https://ribir.org/assets/images/architecture-7bbcd27e5a877f253922429be5cc9519.svg" width="701" height="728" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="build-your-ui-non-intrusive">Build your UI non-intrusive<a href="https://ribir.org/blog/ribir_v0.1.0#build-your-ui-non-intrusive" class="hash-link" aria-label="Direct link to Build your UI non-intrusive" title="Direct link to Build your UI non-intrusive">​</a></h2>
 <p>The most important goal of Ribir is to let you build your UI directly based on your data structure APIs. Any data mutation will trigger a precise UI update. Your focus should be on designing your data structure and its APIs. Then, you can describe your data's UI without intruding on its logic.</p>
 <p>You can abstract your App data structure first and then describe your UI based on its APIs. This process does not necessitate any pre-design of the data structure.</p>
