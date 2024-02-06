@@ -4,7 +4,7 @@
         <title>Ribir Official Website Blog</title>
         <link>https://ribir.org/zh/blog</link>
         <description>Ribir Official Website Blog</description>
-        <lastBuildDate>Tue, 06 Feb 2024 12:25:17 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 06 Feb 2024 12:34:45 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[Ribir v0.1.0]]></title>
             <link>https://ribir.org/zh/blog/ribir_v0.1.0</link>
             <guid>https://ribir.org/zh/blog/ribir_v0.1.0</guid>
-            <pubDate>Tue, 06 Feb 2024 12:25:17 GMT</pubDate>
+            <pubDate>Tue, 06 Feb 2024 12:34:45 GMT</pubDate>
             <description><![CDATA[After several years of conception, especially the hard work of the past year, we are proud to announce that Ribir v0.1.0 is finally released.]]></description>
             <content:encoded><![CDATA[<p><img loading="lazy" src="https://ribir.org/zh/assets/images/hero-banner-0b1b66c835ff2c90107672757ac7c206.png" width="3489" height="1548" class="img_ev3q"></p>
 <p>After several years of conception, especially the hard work of the past year, we are proud to announce that Ribir v0.1.0 is finally released.</p>
