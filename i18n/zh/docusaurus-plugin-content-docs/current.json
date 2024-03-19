@@ -7,8 +7,24 @@
     "message": "快速上手",
     "description": "The label for category Getting Started in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.Getting Started.link.generated-index.description": {
+    "message": "本指南将帮助你开始使用 Ribir，涵盖了你需要知道的所有基础知识。",
+    "description": "The generated-index page description for category Getting Started in sidebar tutorialSidebar"
+  },
   "sidebar.tutorialSidebar.category.Practice Todos App": {
     "message": "Todos App 实战",
     "description": "The label for category Practice Todos App in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Practice Todos App.link.generated-index.description": {
+    "message": "本指南将通过一个完整的 Todos 应用示例，帮助你深入理解和学习 Ribir。",
+    "description": "The generated-index page description for category Practice Todos App in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Understanding Ribir": {
+    "message": "深入 Ribir",
+    "description": "The label for category Understanding Ribir in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Understanding Ribir.link.generated-index.description": {
+    "message": "本指南将带领你了解 Ribir 框架的关键概念和特性，帮助你构建高效且有效的用户界面。",
+    "description": "The generated-index page description for category Understanding Ribir in sidebar tutorialSidebar"
   }
 }
