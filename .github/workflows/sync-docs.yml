@@ -62,6 +62,10 @@ jobs:
 
       - name: submit docs
         run: |
+          if [ $(git status --porcelain | wc -l) -eq 0 ]; then
+            echo "Docs not changed, skip commit and push."
+            exit 0
+          fi
           git config --global user.name "RChangelog[bot]"
           git config --global user.email 155627257+RChangelog[bot]@users.noreply.github.com
           git add .
