@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Ribir v0.1.0","permalink":"/zh/blog/ribir_v0.1.0","unlisted":false}]}')}}]);
