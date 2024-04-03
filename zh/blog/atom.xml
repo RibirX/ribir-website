@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ribir.org/zh/blog</id>
     <title>Ribir Official Website Blog</title>
-    <updated>2024-03-29T03:27:12.000Z</updated>
+    <updated>2024-04-03T00:41:22.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ribir.org/zh/blog"/>
     <subtitle>Ribir Official Website Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[Ribir v0.1.0]]></title>
         <id>https://ribir.org/zh/blog/ribir_v0.1.0</id>
         <link href="https://ribir.org/zh/blog/ribir_v0.1.0"/>
-        <updated>2024-03-29T03:27:12.000Z</updated>
+        <updated>2024-04-03T00:41:22.000Z</updated>
         <summary type="html"><![CDATA[After several years of conception, especially the hard work of the past year, we are proud to announce that Ribir v0.1.0 is finally released.]]></summary>
         <content type="html"><![CDATA[<p><img loading="lazy" src="https://ribir.org/zh/assets/images/hero-banner-0b1b66c835ff2c90107672757ac7c206.png" width="3489" height="1548" class="img_ev3q"></p>
 <p>After several years of conception, especially the hard work of the past year, we are proud to announce that Ribir v0.1.0 is finally released.</p>
@@ -28,7 +28,7 @@
 <li>No inheritance of any base classes</li>
 <li>No other pre-constraints.</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="why-rust">Why Rust?<a href="https://ribir.org/zh/blog/ribir_v0.1.0#why-rust" class="hash-link" aria-label="Why Rust?的直接链接" title="Why Rust?的直接链接">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="why-rust">Why Rust?<a href="https://ribir.org/zh/blog/ribir_v0.1.0#why-rust" class="hash-link" aria-label="Why Rust?的直接链接" title="Why Rust?的�直接链接">​</a></h2>
 <p>Building a high-performance cross-platform framework that compiles natively, we had two options within our purview: C++ and Rust.</p>
 <p>Initially, we were more inclined to choose C++, because C++ has a more mature ecosystem, and we have years of experience in developing large tools based on C++. Although we have been learning and writing Rust for many years, to be honest, we have not used it extensively in a production project. Ultimately, the two core reasons that led us to choose Rust are:</p>
 <ul>
