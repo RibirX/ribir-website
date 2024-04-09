@@ -1,3 +1,8 @@
+---
+date: 2024-02-08T00:00
+tags: ["release"]
+---
+
 # Ribir v0.1.0
 
 ![](/landing-page/hero-banner.png)

@@ -1,3 +1,7 @@
+---
+date: 2024-03-28T18:00
+---
+
 # Announcing Ribir v0.2.0
 
 We're excited to announce the completion of Ribir v0.2.0's development and the release of its first beta version. This release introduces two significant features: overlay support and the ability to use Ribir without "DSL".
