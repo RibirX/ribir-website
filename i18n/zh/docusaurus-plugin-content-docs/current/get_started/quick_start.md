@@ -615,7 +615,7 @@ fn main() {
 }
 ```
 
-这是通过泛型类型 `FatObj` 扩展的，参考 [`FatObj`](https://docs.rs/ribir_core/0.3.0-alpha.3/ribir_core/builtin_widgets/struct.FatObj.html) 的 API 文档，查看它提供的所有扩展能力。
+这是通过泛型类型 `FatObj` 扩展的，参考 [`FatObj`](https://docs.rs/ribir_core/0.3.0-alpha.4/ribir_core/builtin_widgets/struct.FatObj.html) 的 API 文档，查看它提供的所有扩展能力。
 
 
 ## 状态的转换、分离和溯源
