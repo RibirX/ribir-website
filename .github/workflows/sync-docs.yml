@@ -43,7 +43,7 @@ jobs:
           echo "DOCS_DIR=versioned_docs/version-$version" >> $GITHUB_ENV
           echo "CHINESE_DOCS_DIR=i18n/zh/docusaurus-plugin-content-docs/version-$version" >> $GITHUB_ENV
           # create versioned docs if not exist
-          [ ! -d "versioned_docs/$version"  ] && npm install && npm run docusaurus docs:version $version
+          [ ! -d "versioned_docs/version-$version"  ] && npm install && npm run docusaurus docs:version $version
       - name: Move docs to website
         run: |
           echo "Replace version"
