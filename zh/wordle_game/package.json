@@ -1,0 +1,26 @@
+{
+  "name": "wordle_game",
+  "collaborators": [
+    "RibirX<Adoo@outlook.com>"
+  ],
+  "description": "A non-intrusive declarative GUI framework, to build modern native/wasm cross-platform applications.",
+  "version": "0.3.0-alpha.5",
+  "license": "MIT",
+  "files": [
+    "wordle_game_bg.wasm",
+    "wordle_game.js",
+    "wordle_game.d.ts"
+  ],
+  "module": "wordle_game.js",
+  "homepage": "https://ribir.org",
+  "types": "wordle_game.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ],
+  "keywords": [
+    "gui",
+    "ui",
+    "declarative",
+    "compose-ui"
+  ]
+}
