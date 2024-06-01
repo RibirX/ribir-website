@@ -8,8 +8,8 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Ribir Official Website',
-  tagline: 'Using the Ribir to build everything',
+  title: 'Ribir',
+  tagline: 'Non-intrusive GUI framework for Rust',
   url: 'https://ribir.org',
   baseUrl: '/',
   favicon: 'img/logo.ico',
@@ -63,6 +63,22 @@ const config = {
         },
         theme: {
           customCss: './src/css/custom.css',
+        },
+        gtag: {
+          trackingID: 'G-Z8VRXCGSJQ',
+          anonymizeIP: true,
+        },
+        sitemap: {
+          lastmod: 'date',
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+          createSitemapItems: async (params) => {
+            const { defaultCreateSitemapItems, ...rest } = params;
+            const items = await defaultCreateSitemapItems(rest);
+            return items.filter((item) => !item.url.includes('/page/'));
+          },
         },
       }),
     ],

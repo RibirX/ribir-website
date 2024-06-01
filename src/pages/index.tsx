@@ -13,8 +13,8 @@ export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title={`${siteConfig.title} · ${siteConfig.tagline}`}
+      description="Ribir is a Rust GUI framework that helps you build beautiful and native multi-platform applications from a single codebase."
     >
       <HeroBanner />
       <FeatureLeftSection
