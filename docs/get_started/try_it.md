@@ -27,7 +27,7 @@ Next, edit the `Cargo.toml` file and add Ribir as a dependency:
 
 ```toml
 [dependencies]
-ribir = "0.2.0"
+ribir = "0.4.0-alpha.6"
 ```
 
 Or you can directly run `cargo add --git "https://github.com/RibirX/Ribir" ribir` to let Cargo add the latest Ribir version that is under development for you.

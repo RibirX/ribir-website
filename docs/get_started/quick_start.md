@@ -43,9 +43,9 @@ A function widget can be defined directly through a function:
 ```rust no_run
 use ribir::prelude::*;
 
-fn hello_world(ctx!(): &BuildCtx) -> Widget {
+fn hello_world(ctx!(): &mut BuildCtx) -> Widget<'static> {
   rdl!{ Text { text: "Hello World!" } }
-    .build(ctx!())
+    .into_widget()
 }
 
 fn main() { 
@@ -72,9 +72,9 @@ Because `hello_world` is not called by anyone else, you can rewrite it as a clos
 use ribir::prelude::*;
 
 fn main() {
-  let hello_world = |ctx!(): &BuildCtx| {
+  let hello_world = |ctx!(): &mut BuildCtx| {
     rdl!{ Text { text: "Hello World!" } }
-      .build(ctx!())
+      .into_widget()
   };
   App::run(hello_world);
 }
@@ -87,7 +87,7 @@ move |ctx!(): &BuildCtx| -> Widget {
   {
     // Your code
   }
-  .build(ctx!())
+  .into_widget()
 }
 ```
 
@@ -259,6 +259,18 @@ fn main() {
   });
 }
 ```
+For expression widgets that are simple function calls, the `{}` can be omitted for brevity:
+
+```rust ignore
+fn_widget! {
+  // Instead of using braces:
+  let label = @ { Label::new("Increment") };
+  // You can directly write:
+  let label = @Label::new("Increment");
+  ...
+};
+```
+
 ## State -- make data watchable and shareable
 
 Although we have created a counter, it always shows `0` and does not respond to the button. In this section, you will learn how to make your counter work through state.
@@ -533,7 +545,7 @@ The first situation is when the subscription's lifecycle should be shorter than 
 ```rust
 use ribir::prelude::*;
 
-fn show_name(name: State<String>) -> impl WidgetBuilder {
+fn show_name(name: State<String>) -> Widget<'static> {
   fn_widget!{
     let text = @Text { text: "Hi, Guest!" };
     let u = watch!($name.to_string()).subscribe(move |name| {
@@ -545,6 +557,7 @@ fn show_name(name: State<String>) -> impl WidgetBuilder {
     // unsubscribe when the widget is destroyed
     @$text { on_disposed: move |_| u.unsubscribe() }
   }
+  .into_widget()
 }
 ```
 
@@ -585,7 +598,7 @@ impl Counter {
 }
 
 impl Compose for Counter {
-  fn compose(this: impl StateWriter<Value = Self>) -> impl WidgetBuilder {
+  fn compose(this: impl StateWriter<Value = Self>) -> Widget<'static> {
     fn_widget! {
       @Row {
         @FilledButton {
@@ -595,11 +608,12 @@ impl Compose for Counter {
         @H1 { text: pipe!($this.0.to_string()) }
       }
     }
+    .into_widget()
   }
 }
 
 fn main() { 
-  App::run(fn_widget!{ Counter(0) }); 
+  App::run(fn_widget!(Counter(0))); 
 }
 
 ```
@@ -661,7 +675,7 @@ fn main() {
 }
 ```
 
-This is extended through the generic type `FatObj`. Refer to the API documentation of [`FatObj`](https://docs.rs/ribir_core/0.2.0/ribir_core/builtin_widgets/struct.FatObj.html) to see all the extended capabilities it provides.
+This is extended through the generic type `FatObj`. Refer to the API documentation of [`FatObj`](https://docs.rs/ribir_core/0.4.0-alpha.6/ribir_core/builtin_widgets/struct.FatObj.html) to see all the extended capabilities it provides.
 
 ## Map, Split and trace the original state
 
@@ -771,8 +785,8 @@ let _: &State<AppData> = state.origin_reader();
 let _: &State<AppData> = state.origin_writer();
 
 // the sub-state's origin state is where it splits from
-let _: &Writer<AppData> = split_count.origin_reader();
-let _: &Writer<AppData> = split_count.origin_writer();
+let _: &Stateful<AppData> = split_count.origin_reader();
+let _: &Stateful<AppData> = split_count.origin_writer();
 ```
 
 ## The next step

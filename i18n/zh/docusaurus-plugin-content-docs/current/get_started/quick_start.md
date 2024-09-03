@@ -43,9 +43,9 @@ sidebar_position: 2
 ```rust no_run
 use ribir::prelude::*;
 
-fn hello_world(ctx!(): &BuildCtx) -> Widget {
+fn hello_world(ctx!(): &mut BuildCtx) -> Widget<'static> {
   rdl!{ Text { text: "Hello World!" } }
-    .build(ctx!())
+    .into_widget()
 }
 
 fn main() { 
@@ -71,9 +71,9 @@ fn main() {
 use ribir::prelude::*;
 
 fn main() {
-  let hello_world = |ctx!(): &BuildCtx| {
+  let hello_world = |ctx!(): &mut BuildCtx| {
     rdl!{ Text { text: "Hello World!" } }
-      .build(ctx!())
+      .into_widget()
   };
   App::run(hello_world);
 }
@@ -86,7 +86,7 @@ move |ctx!(): &BuildCtx| -> Widget {
   {
     // 你的代码
   }
-  .build(ctx!())
+  .into_widget()
 }
 ```
 
@@ -257,6 +257,18 @@ fn main() {
     }
   });
 }
+```
+
+对于简单的函数调用形式的表达式 widget ，可以省略 `{}` 以简化书写：
+
+```rust ignore
+fn_widget! {
+  // 使用大括号的写法：
+  let label = @ { Label::new("Increment") };
+  // 可以直接写为：
+  let label = @Label::new("Increment");
+  ...
+};
 ```
 
 ## 状态——让数据变得可被侦和共享
@@ -534,7 +546,7 @@ fn main() {
 ```rust
 use ribir::prelude::*;
 
-fn show_name(name: State<String>) -> impl WidgetBuilder {
+fn show_name(name: State<String>) -> Widget<'static> {
   fn_widget!{
     let text = @Text { text: "Hi, Guest!" };
     let u = watch!($name.to_string()).subscribe(move |name| {
@@ -545,6 +557,7 @@ fn show_name(name: State<String>) -> impl WidgetBuilder {
     // 所以我们需要在控件销毁时取消订阅
     @$text { on_disposed: move |_| u.unsubscribe() }
   }
+  .into_widget()
 }
 ```
 
@@ -584,7 +597,7 @@ impl Counter {
 }
 
 impl Compose for Counter {
-  fn compose(this: impl StateWriter<Value = Self>) -> impl WidgetBuilder {
+  fn compose(this: impl StateWriter<Value = Self>) -> Widget<'static> {
     fn_widget! {
       @Row {
         @FilledButton {
@@ -594,11 +607,12 @@ impl Compose for Counter {
         @H1 { text: pipe!($this.0.to_string()) }
       }
     }
+    .into_widget()
   }
 }
 
 fn main() { 
-  App::run(fn_widget!{ Counter(0) }); 
+  App::run(fn_widget!(Counter(0))); 
 }
 
 ```
@@ -658,7 +672,7 @@ fn main() {
 }
 ```
 
-这是通过泛型类型 `FatObj` 扩展的，参考 [`FatObj`](https://docs.rs/ribir_core/0.2.0/ribir_core/builtin_widgets/struct.FatObj.html) 的 API 文档，查看它提供的所有扩展能力。
+这是通过泛型类型 `FatObj` 扩展的，参考 [`FatObj`](https://docs.rs/ribir_core/0.4.0-alpha.6/ribir_core/builtin_widgets/struct.FatObj.html) 的 API 文档，查看它提供的所有扩展能力。
 
 
 ## 状态的转换、分离和溯源
@@ -770,8 +784,8 @@ let _: &State<AppData> = state.origin_reader();
 let _: &State<AppData> = state.origin_writer();
 
 // 子状态的源状态是它的父亲
-let _: &Writer<AppData> = split_count.origin_reader();
-let _: &Writer<AppData> = split_count.origin_writer();
+let _: &Stateful<AppData> = split_count.origin_reader();
+let _: &Stateful<AppData> = split_count.origin_writer();
 ```
 
 ## 下一步
