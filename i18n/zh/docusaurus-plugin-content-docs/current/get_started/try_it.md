@@ -42,7 +42,7 @@ ribir = "0.4.0-alpha.19"
 use ribir::prelude::*;
 
 fn main() {
-  App::run(fn_widget! { @Text { text: "Hello World!" }});
+  App::run(text! { text: "Hello World!" });
 }
 ```
 
