@@ -656,7 +656,7 @@ fn main() {
 }
 ```
 
-This is extended by the generic type `FatObj`, refer to the API documentation for [`FatObj`](https://docs.rs/ribir_core/0.4.0-alpha.25/ribir_core/builtin_widgets/struct.FatObj.html) to see all the extensibility it provides.
+This is extended by the generic type `FatObj`, refer to the API documentation for [`FatObj`](https://docs.rs/ribir_core/0.4.0-alpha.26/ribir_core/builtin_widgets/struct.FatObj.html) to see all the extensibility it provides.
 
 ## State Transitions, Separation, and Traceability
 
