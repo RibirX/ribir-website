@@ -461,7 +461,7 @@ fn main() {
       @Text { text: pipe!($b.to_string()) }
       @Text {
         text: pipe!((*$a + *$b).to_string())
-          .value_chain(|s| s.distinct_until_changed().box_it()),
+          .transform(|s| s.distinct_until_changed().box_it()),
         on_tap: move |_| {
           *$a.write() += 1;
           *$b.write() -= 1;
@@ -690,23 +690,23 @@ struct AppData {
 }
 
 let state = State::value(AppData { count: 0 });
-let map_count = state.part_writer(None, |d| PartMut::new(&mut d.count));
-let split_count = state.part_writer(None, |d| PartMut::new(&mut d.count));
+let map_count = state.part_writer(PartialId::any(), |d| PartMut::new(&mut d.count));
+let split_count = state.part_writer(PartialId::any(), |d| PartMut::new(&mut d.count));
 
 watch!($state.count).subscribe(|_| println!("Parent data"));
 watch!(*$map_count).subscribe(|_| println!("Child(map) data"));
 watch!(*$split_count).subscribe(|_| println!("Child(split) data"));
 state
   .raw_modifies()
-  .filter(|s| s.contains(ModifyScope::FRAMEWORK))
+  .filter(|s| s.contains(ModifyEffect::FRAMEWORK))
   .subscribe(|_| println!("Parent framework"));
 map_count
   .raw_modifies()
-  .filter(|s| s.contains(ModifyScope::FRAMEWORK))
+  .filter(|s| s.contains(ModifyEffect::FRAMEWORK))
   .subscribe(|_| println!("Child(map) framework"));
 split_count
   .raw_modifies()
-  .filter(|s| s.contains(ModifyScope::FRAMEWORK))
+  .filter(|s| s.contains(ModifyEffect::FRAMEWORK))
   .subscribe(|_| println!("Child(split) framework"));
 
 // Modify data through the split sub-state, the data modification push to both the parent and child state subscribers.
