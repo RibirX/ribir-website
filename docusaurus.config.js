@@ -14,6 +14,10 @@ const config = {
   baseUrl: '/',
   favicon: 'img/logo.ico',
 
+  markdown: {
+    format: 'detect',
+  },
+
   organizationName: 'RibirX',
   projectName: 'ribir-website',
 
